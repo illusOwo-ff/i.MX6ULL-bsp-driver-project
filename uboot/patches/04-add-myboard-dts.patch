@@ -1,0 +1,11 @@
+--- /home/book/uboot-original/arch/arm/dts/imx6ull-14x14-evk.dts	2026-04-12 18:01:43.535814422 -0400
++++ /home/book/my-uboot-v2017.03-4.9.88/arch/arm/dts/imx6ull-myboard.dts	2026-04-12 12:13:32.175449638 -0400
+@@ -189,7 +189,7 @@
+ 
+ 		ethphy0: ethernet-phy@2 {
+ 			compatible = "ethernet-phy-ieee802.3-c22";
+-			reg = <2>;
++			reg = <0>;
+ 		};
+ 
+ 		ethphy1: ethernet-phy@1 {

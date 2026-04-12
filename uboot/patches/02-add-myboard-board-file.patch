@@ -1,0 +1,52 @@
+--- /home/book/uboot-original/board/freescale/mx6ullevk/mx6ullevk.c	2026-04-12 18:01:43.959804683 -0400
++++ /home/book/my-uboot-v2017.03-4.9.88/board/freescale/mx6ull_myboard/mx6ull_myboard.c	2026-04-12 12:23:43.144669539 -0400
+@@ -307,6 +307,11 @@
+ #endif
+ 
+ #ifdef CONFIG_FEC_MXC
++
++/*define enet1 enet2 reset pin*/
++#define ENET1_RESET_GPIO    IMX_GPIO_NR(5, 9)
++#define ENET2_RESET_GPIO    IMX_GPIO_NR(5, 6)
++
+ static int setup_fec(int fec_id)
+ {
+ 	struct iomuxc *const iomuxc_regs = (struct iomuxc *)IOMUXC_BASE_ADDR;
+@@ -339,13 +344,26 @@
+ 		return ret;
+ 
+ 	enable_enet_clk(1);
+-
++	
++	/*PHY reset*/
++	if (fec_id == 0) {
++		gpio_request(ENET1_RESET_GPIO, "enet1_reset");
++		gpio_direction_output(ENET1_RESET_GPIO, 0);
++		mdelay(20);
++		gpio_direction_output(ENET1_RESET_GPIO, 1);
++		mdelay(100);
++	} else {
++		gpio_request(ENET2_RESET_GPIO, "enet2_reset");
++		gpio_direction_output(ENET2_RESET_GPIO, 0);
++		mdelay(20);
++		gpio_direction_output(ENET2_RESET_GPIO, 1);
++		mdelay(100);
++	}
+ 	return 0;
+ }
+ 
+ int board_phy_config(struct phy_device *phydev)
+ {
+-	phy_write(phydev, MDIO_DEVAD_NONE, 0x1f, 0x8190);
+ 
+ 	if (phydev->drv->config)
+ 		phydev->drv->config(phydev);
+@@ -517,7 +535,7 @@
+ 	if (is_mx6ull_9x9_evk())
+ 		puts("Board: MX6ULL 9x9 EVK\n");
+ 	else
+-		puts("Board: MX6ULL 14x14 EVK\n");
++		puts("Board: MX6ULL MYBOARD\n");
+ 
+ 	return 0;
+ }

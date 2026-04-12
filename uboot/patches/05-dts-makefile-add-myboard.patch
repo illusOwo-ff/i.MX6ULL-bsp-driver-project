@@ -1,0 +1,10 @@
+--- /home/book/uboot-original/arch/arm/dts/Makefile	2026-04-12 18:01:43.519814790 -0400
++++ /home/book/my-uboot-v2017.03-4.9.88/arch/arm/dts/Makefile	2026-04-12 12:19:18.658386580 -0400
+@@ -322,6 +322,7 @@
+ 	imx6ull-14x14-ddr3-arm2-gpmi-weim.dtb \
+ 	imx6ull-14x14-ddr3-arm2-tsc.dtb \
+ 	imx6ull-14x14-evk.dtb \
++	imx6ull-myboard.dtb \
+ 	imx6ull-14x14-evk-emmc.dtb \
+ 	imx6ull-14x14-evk-gpmi-weim.dtb \
+ 	imx6ul-9x9-evk.dtb \
