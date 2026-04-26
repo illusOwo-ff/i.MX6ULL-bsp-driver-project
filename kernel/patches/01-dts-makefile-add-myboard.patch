@@ -1,0 +1,10 @@
+--- /home/book/dts-Makefile-original	2026-04-26 15:57:17.220154988 -0400
++++ /home/book/my-linux-imx-imx_4.9.88.2.0/arch/arm/boot/dts/Makefile	2026-04-26 09:27:38.977938252 -0400
+@@ -530,6 +530,7 @@
+ 	imx6ull-14x14-evk-emmc.dtb \
+ 	imx6ull-14x14-evk-gpmi-weim.dtb \
+ 	imx6ull-14x14-evk-usb-certi.dtb \
++	imx6ull-my14x14-emmc.dtb \
+ 	imx6ull-9x9-evk.dtb \
+ 	imx6ull-9x9-evk-btwifi.dtb \
+ 	imx6ull-9x9-evk-btwifi-oob.dtb \
