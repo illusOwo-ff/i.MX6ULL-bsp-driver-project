@@ -2,20 +2,19 @@
 
 ## 概述
 
-将 NXP 官方 Linux 内核 4.9.88（分支 `imx_4.9.88_2.0.0_ga`）移植到百问网 100ASK IMX6ULL Pro 开发板，解决 eMMC、SD卡和网络三个方面的硬件适配问题。
+将 NXP 官方 Linux 内核 4.9.88（分支 `imx_4.9.88_2.0.0_ga`）移植到百问网 100ASK IMX6ULL Pro 开发板，主要涉及到解决 eMMC、SD卡和网络等方面的硬件适配问题。
 
 ## 硬件平台
 
 | 项目 | 规格 |
 |------|------|
-| 开发板 | 100ASK IMX6ULL Pro（韦东山版） |
+| 开发板 | 100ASK IMX6ULL Pro（韦东山） |
 | SoC | NXP i.MX6ULL (MCIMX6Y2DVM05AA) |
 | DDR | 512MB DDR3 |
 | 存储 | 4GB eMMC (MTFC4GACAAM-4M IT) + SD卡槽 |
 | 网络PHY | LAN8720A × 2（SMSC，RMII接口） |
-| 调试串口 | UART1 |
 
-## 基于的源码
+## 基于NXP官方源码位置
 
 - **仓库**：[nxp-imx/linux-imx](https://github.com/nxp-imx/linux-imx)
 - **分支**：`imx_4.9.88_2.0.0_ga`
