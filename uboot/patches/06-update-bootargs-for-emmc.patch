@@ -1,0 +1,31 @@
+--- /tmp/mx6ull_myboard_before.h	2026-05-24 07:48:54.911118144 -0400
++++ include/configs/mx6ull_myboard.h	2026-05-23 11:42:12.320372551 -0400
+@@ -67,7 +67,7 @@
+ #define CONFIG_POWER_PFUZE3000_I2C_ADDR  0x08
+ #endif
+ 
+-#define CONFIG_SYS_MMC_IMG_LOAD_PART	1
++#define CONFIG_SYS_MMC_IMG_LOAD_PART	2
+ 
+ #ifdef CONFIG_NAND_BOOT
+ #define MFG_NAND_PARTITION "mtdparts=gpmi-nand:64m(boot),16m(kernel),16m(dtb),16m(tee),-(rootfs) "
+@@ -130,7 +130,7 @@
+ 	"console=ttymxc0\0" \
+ 	"fdt_high=0xffffffff\0" \
+ 	"initrd_high=0xffffffff\0" \
+-	"fdt_file=undefined\0" \
++	"fdt_file=imx6ull-my14x14-emmc.dtb\0" \
+ 	"fdt_addr=0x83000000\0" \
+ 	"tee_addr=0x84000000\0" \
+ 	"tee_file=uTee-6ullevk\0" \
+@@ -148,8 +148,8 @@
+ 		"fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
+ 	"bootscript=echo Running bootscript from mmc ...; " \
+ 		"source\0" \
+-	"loadimage=fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${image}\0" \
+-	"loadfdt=fatload mmc ${mmcdev}:${mmcpart} ${fdt_addr} ${fdt_file}\0" \
++	"loadimage=ext2load mmc ${mmcdev}:${mmcpart} ${loadaddr} /boot/${image}\0" \
++	"loadfdt=ext2load mmc ${mmcdev}:${mmcpart} ${fdt_addr} /boot/${fdt_file}\0" \
+ 	"loadtee=fatload mmc ${mmcdev}:${mmcpart} ${tee_addr} ${tee_file}\0" \
+ 	"mmcboot=echo Booting from mmc ...; " \
+ 		"run mmcargs; " \
