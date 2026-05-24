@@ -93,3 +93,7 @@ sync && umount /mnt/emmc
 ## 验证结果
 
 eMMC 独立启动成功，全链路自主构建：U-Boot → 内核 → rootfs → shell。所有调试工具（i2c-tools、strace、trace-cmd、gdbserver、dropbear 等）验证可用。
+
+## 详细文档
+
+- [构建过程记录](docs/rootfs_project_record.md)：完整流程、遇到的问题和解决方法
