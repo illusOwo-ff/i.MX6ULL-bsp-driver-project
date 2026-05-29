@@ -2,7 +2,7 @@
 
 ## 概述
 
-本部分基于 Linux serial/tty 子系统框架，为 i.MX6ULL 开发了完整的 UART 控制器驱动。通过操作 IMX6ULL 真实的 UART 寄存器（如 URXD, UTXD, UCR 等）完成了核心控制器驱动的开发，使整个子系统能够正常运转。
+本部分基于 Linux serial/tty 子系统框架，为 i.MX6ULL 开发了完整的 UART 控制器驱动，通过操作 IMX6ULL 真实的 UART 寄存器（如 URXD, UTXD, UCR 等）完成了核心控制器驱动的开发，测试与调试验证功能正常。
 
 ## 驱动核心特性
 
@@ -56,7 +56,7 @@ make
 
 ## 测试与验证流程
 
-将编译好的 `uart_driver.ko` 拷贝到开发板，并准备几根杜邦线。
+将编译好的 `uart_driver.ko` 拷贝到开发板，并准备杜邦线。
 
 ### 1. 硬件连接
 
