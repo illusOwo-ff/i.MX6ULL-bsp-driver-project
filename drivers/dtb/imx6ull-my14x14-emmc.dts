@@ -1,0 +1,111 @@
+/*
+ * Copyright (C) 2016 Freescale Semiconductor, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+#include "imx6ull-14x14-evk.dts"
+
+&pinctrl_lcdif_reset {
+	fsl,pins = <
+		/* cleared: TAMPER9 used for ENET1 PHY reset on this board */
+	>;
+};
+
+&iomuxc_snvs {
+	imx6ull-myboard {
+		pinctrl_enet1_reset: enet1resetgrp {
+			fsl,pins = <
+				MX6ULL_PAD_SNVS_TAMPER9__GPIO5_IO09	0x000110A0
+			>;
+		};
+
+		pinctrl_enet2_reset: enet2resetgrp {
+			fsl,pins = <
+				MX6ULL_PAD_SNVS_TAMPER6__GPIO5_IO06	0x000110A0
+			>;
+		};
+	};
+};
+
+
+&fec1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_enet1
+		     &pinctrl_enet1_reset>;
+	phy-mode = "rmii";
+	phy-handle = <&ethphy0>;
+	phy-reset-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
+	phy-reset-duration = <200>;
+	status = "okay";
+};
+
+&fec2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_enet2
+		     &pinctrl_enet2_reset>;
+	phy-mode = "rmii";
+	phy-handle = <&ethphy1>;
+	phy-reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
+	phy-reset-duration = <200>;
+	status = "okay";
+};
+
+&ethphy0 {
+	smsc,disable-energy-detect;
+	reg = <0>;
+};
+
+&ethphy1 {
+	smsc,disable-energy-detect;
+};
+
+&usdhc1 {
+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+	pinctrl-0 = <&pinctrl_usdhc1>;
+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
+	cd-gpios = <&gpio1 19 GPIO_ACTIVE_LOW>;
+	keep-power-in-suspend;
+	enable-sdio-wakeup;
+	no-1-8-v;
+	status = "okay";
+};
+
+&usdhc2 {
+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+	pinctrl-0 = <&pinctrl_usdhc2_8bit>;
+	pinctrl-1 = <&pinctrl_usdhc2_8bit_100mhz>;
+	pinctrl-2 = <&pinctrl_usdhc2_8bit_200mhz>;
+	bus-width = <8>;
+	no-1-8-v;
+	non-removable;
+	status = "okay";
+};
+
+&csi {
+    status = "disabled";
+};
+
+&iomuxc {
+        pinctrl_my_uart6: myuart6grp {
+            fsl,pins = <
+                MX6UL_PAD_CSI_MCLK__UART6_DCE_TX    0x1b0b1
+                MX6UL_PAD_CSI_PIXCLK__UART6_DCE_RX   0x1b0b1
+            >;
+        };
+};
+
+&uart6 {
+    compatible = "zxr-my_uart";
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_my_uart6>;
+    status = "okay";
+};
+
+&ov5640 {
+    status = "disabled";
+};
+
