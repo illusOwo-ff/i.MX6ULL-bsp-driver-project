@@ -109,3 +109,8 @@
     status = "disabled";
 };
 
+&i2c1 {
+    compatible = "i2c-bus-zxr";
+    /delete-node/ mag3110@0e;
+    /delete-node/ fxls8471@1e;
+};
