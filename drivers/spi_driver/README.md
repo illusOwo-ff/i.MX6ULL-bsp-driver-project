@@ -66,13 +66,6 @@ spi_driver/
 ## 编译与部署
 
 ```bash
-# 编译
-export ARCH=arm
-export CROSS_COMPILE=arm-linux-gnueabihf-
-make
-
-# 部署到板子
-cp spi_adapter.ko spi_adx1345_drv.ko adxl345_app spi_bench spi_perf_compare.sh /mnt/mydriver/spi/
 
 # 加载（PIO模式）
 insmod spi_adapter.ko

@@ -42,13 +42,6 @@ i2c_adapter_driver/
 ## 编译与部署
 
 ```bash
-# 交叉编译
-export ARCH=arm
-export CROSS_COMPILE=arm-linux-gnueabihf-
-make -C <kernel_source> M=$(pwd) modules
-
-# 部署到板子（NFS 或 scp）
-cp i2c_adapter.ko /mnt/mydriver/
 
 # 加载
 insmod i2c_adapter.ko
