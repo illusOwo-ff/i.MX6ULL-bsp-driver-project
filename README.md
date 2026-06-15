@@ -2,7 +2,7 @@
 
 > 在 100ASK i.MX6ULL Pro 开发板上从零构建嵌入式 Linux 平台（U-Boot / 内核 / 根文件系统移植），并在其上编写 SPI / I2C / UART / GPIO+中断 多个子系统的**控制器驱动**——填充内核子系统框架的硬件相关层，让子系统本身在该板上工作。配套 Ftrace / strace 调试与性能分析。
 
-https://img.shields.io/badge/platform-i.MX6ULL-blue https://img.shields.io/badge/kernel-4.9.88-green https://img.shields.io/badge/license-GPL--3.0-orange
+![Platform](https://img.shields.io/badge/platform-i.MX6ULL-blue) ![Kernel](https://img.shields.io/badge/kernel-4.9.88-green) ![License](https://img.shields.io/badge/license-GPL--3.0-orange)
 
 ### 项目定位
 
