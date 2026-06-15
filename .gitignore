@@ -1,0 +1,29 @@
+# ===== Common build artifacts =====
+
+# Kernel / module / compiler outputs
+*.o
+*.ko
+*.cmd
+*.mod
+*.mod.*
+*.symvers
+*.order
+Module.symvers
+modules.order
+
+# Temporary / backup files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Build directories
+build/
+**/build/
+output/
+**/output/
+
+# Keep committed DTB files under drivers/dtb/
+!drivers/dtb/
+!drivers/dtb/*.dtb
